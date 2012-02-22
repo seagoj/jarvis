@@ -15,6 +15,6 @@
 	define(SIGLEN, -127);
 	define(TESTEMAIL, "kat.dankel@gmail.com");
 	
-	mysql_connect(DBHOST,DBUSER,DBPASS) or die("connection");
-	mysql_select_db(DBNAME) or die("selection");
+	//mysql_connect(DBHOST,DBUSER,DBPASS) or die("connection");
+	//mysql_select_db(DBNAME) or die("selection");
 ?>
