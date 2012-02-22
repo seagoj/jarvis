@@ -6,6 +6,8 @@ $mailserver = "{".MAILHOST.":143/notls}INBOX";
 $imap = imap_open($mailserver, EMAIL, PASS);
 $emailCount = imap_num_msg($imap);
 
+var_dump($emailCount);
+
 if($emailCount != 0) {
 	for($i=1;$i<=$emailCount;$i++) {
 		
