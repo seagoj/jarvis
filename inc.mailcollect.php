@@ -1,7 +1,10 @@
 <?php
 include_once('inc.controller.php');
 
-$imap = imap_open("{seagoj.com:143/notls}INBOX", EMAIL, PASS);
+$mailserver = "{".MAILHOST.":143/notls}INBOX";
+//$imap = imap_open("{seagoj.com:143/notls}INBOX", EMAIL, PASS);
+$imap = imap_open($mailserver, EMAIL, PASS);
+var_dump($imap);
 $emailCount = imap_num_msg($imap);
 
 if($emailCount != 0) {
