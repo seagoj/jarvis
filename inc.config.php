@@ -8,6 +8,7 @@
 	define(GAMESTBL, "games");
 	define(ROOTDIR, "jarvis/");
 	
+    define("MAILHOST", "mail.seagoj.com");
 	define("EMAIL", "jarvis@seagoj.com");
 	define(PASS, "gyte526yiojomp98h6rvy");
 	define(AUTHEMAIL, "seagoj@gmail.com");
