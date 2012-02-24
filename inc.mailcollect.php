@@ -19,8 +19,9 @@ if($emailCount != 0) {
 	    	print "Failed to retrieve headers\n";
 	   	} else {
 	   		if($emailFrom == AUTHEMAIL || $emailFrom == TESTEMAIL) {
-                print ("from valid email");
+                print "from valid email";
 	   			$structure = imap_fetchstructure($imap,$i);
+                var_dump($structure);
 	   			if (!$structure->parts)  {// not multipart
 	   		    	$body = imap_body($imap, $i);
 	   		    }
