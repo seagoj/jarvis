@@ -2,8 +2,7 @@
     require_once('lib.model/class.model.php');
     
     $conn = new model('jarvis');
-    var_dump($conn);
-
+    
 	define(DBHOST,"localhost");
 	define(DBUSER,"icfjstor_library");
 	define(DBPASS,"NUEoilfsamdmaie23814");
