@@ -36,7 +36,8 @@ if($emailCount != 0) {
 	   		//destroy variables
 	   		unset($data);
 	   }
-	   imap_delete($imap, $i);
+       /* Uncomment below line to delete captured mail */
+	   //imap_delete($imap, $i);
 	}
 	imap_expunge($imap);
 	imap_close($imap);
