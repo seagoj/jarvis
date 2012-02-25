@@ -11,7 +11,7 @@ $mailserver = "{".MAILHOST.":143/notls}INBOX";
 dbg::test($mailserver=="{mail.seagoj.com:143/notls}INBOX",__METHOD__);
 $imap = imap_open($mailserver, EMAIL, PASS);
 dbg::vardump($imap);
-dbg::test(imap_errors()==NULL, __METHOD__);
+dbg::test(imap_errors()=='NULL', __METHOD__);
 $emailCount = imap_num_msg($imap);
 
 if($emailCount != 0) {
