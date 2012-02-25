@@ -1,13 +1,10 @@
 <?php
+if(_DEBUG_) print "debug mode";
 include_once('inc.controller.php');
 
 $mailserver = "{".MAILHOST.":143/notls}INBOX";
-//var_dump($mailserver);
-//$imap = imap_open("{seagoj.com:143/notls}INBOX", EMAIL, PASS);
 $imap = imap_open($mailserver, EMAIL, PASS);
-//var_dump($imap);
 $emailCount = imap_num_msg($imap);
-//var_dump($emailCount);
 
 if($emailCount != 0) {
 	for($i=1;$i<=$emailCount;$i++) {
@@ -20,13 +17,13 @@ if($emailCount != 0) {
 	   	} else {
 	   		if($emailFrom == AUTHEMAIL || $emailFrom == TESTEMAIL) {
 	   			$structure = imap_fetchstructure($imap,$i);
-	   			if (!$structure->parts)  {// not multipart
+	   			if (!$structure->parts)  { // not multipart
 	   		    	$body = imap_body($imap, $i);
 	   		    }
 	    		else {  // multipart: iterate through each part
 	        		$body = imap_fetchbody($imap, $i, 2);
-	        		if($emailFrom == AUTHEMAIL)
-	        			$body = remSignature($body);
+                    $body = remSignature($body);
+                    print "<div>$body</div>";
 	    		}
 	    		$data = parse($body);
 	        	performTask(strtolower($headers->subject), $data, $emailFrom);
@@ -34,7 +31,8 @@ if($emailCount != 0) {
 	   		//destroy variables
 	   		unset($data);
 	   }
-	   imap_delete($imap, $i);
+       /* Uncomment below line to delete captured mail */
+	   if(!_DEBUG_) imap_delete($imap, $i);
 	}
 	imap_expunge($imap);
 	imap_close($imap);
