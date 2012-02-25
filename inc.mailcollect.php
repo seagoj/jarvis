@@ -1,15 +1,11 @@
-<html>
-<head>
 <?php
+print "<html><head>";
 if(_DEBUG_) {
     require_once('lib.dbg/class.dbg.php');
     dbg::setNoCache();
 }
 include_once('inc.controller.php');
-?>
-</head>
-<body>
-<?php
+print "</head><body>";
 
 $mailserver = "{".MAILHOST.":143/notls}INBOX";
 //var_dump($mailserver);
@@ -50,6 +46,5 @@ if($emailCount != 0) {
 }
 
 print "<div>".rand()."</div>";
+print "</body></html>";
 ?>
-</body>
-</html>

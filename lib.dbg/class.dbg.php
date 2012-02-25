@@ -1,9 +1,4 @@
 <?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of class
  *
@@ -33,7 +28,7 @@ class dbg
     }
     
     public function setNoCache() {
-        print '<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">\n<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">';
+        print "<META HTTP-EQUIV='CACHE-CONTROL' CONTENT='NO-CACHE'>\n<META HTTP-EQUIV='PRAGMA' CONTENT='NO-CACHE'>";
     }
 }
 ?>
