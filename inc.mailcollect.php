@@ -27,6 +27,7 @@ if($emailCount != 0) {
 	        		$body = imap_fetchbody($imap, $i, 2);
 	        		print "<div>$body</div>";
                     $body = remSignature($body);
+                    print "<div>$body</div>";
 	    		}
 	    		$data = parse($body);
 	        	performTask(strtolower($headers->subject), $data, $emailFrom);
