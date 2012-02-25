@@ -22,8 +22,9 @@
         			$error .= "No End Line<br>$nextRet<br>$body<br>";
         		}
         		$$var = ucwords(substr($body, strpos($body, $token)+strlen($token), $nextRet-strpos($body, $token)-strlen($token)));
-        		if(substr($$var, 0, 3)=="The") {	
+        		if(substr($$var, 0, 3)=="The") {
         			$$var = substr($$var, 4).", The";
+                    dbg::vardump($$var);
         		}
         		$data = array_merge($data, array($var=>$$var));
         		if(!(strpos($body, "<br>")===false)) {
