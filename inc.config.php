@@ -8,7 +8,7 @@
         $mysql_config = $services_json["mysql-5.1"][0]["credentials"];
     }
     
-    //dbg::vardump($mysql_config);
+    dbg::vardump($mysql_config);
     $db = $mysql_config['name'];
     $musicTbl = '`'.$db.'`.`music`';
     
@@ -23,8 +23,11 @@ INDEX (  `index` )
 
 print $sql;
 
+    $conn = mysql_connect($mysql_config['host'], $mysql_config['username'], $mysql_config['password']);
+    mysql_query($sql,$conn);
+    print mysql_error();
     
-    $conn = new model('jarvis');
+    //$conn = new model('jarvis');
     //$conn->from('config');
     //$conn->columns('*');
     //$conn->where(1);
