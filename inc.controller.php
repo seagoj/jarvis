@@ -1,6 +1,6 @@
 <?php
-	print "<div>before inc.config</div>";
-    print "<div>before class.query</div>";
+    include_once('inc.config.php');
+	include_once('class.query.php');
 	
 	function remSignature($email) {
 		return substr($email, 0, strpos($email, "<br clear=\"all\">"));
