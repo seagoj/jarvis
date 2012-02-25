@@ -36,7 +36,7 @@ class dbg
         print "<div>ASSERT_BAIL</div>";
         assert_options(ASSERT_QUIET_EVAL, false);
         print "<div>ASSERT_QUIET_EVAL</div>";
-        assert_callback(ASSERT_CALLBACK, 'testFail');
+        assert_callback(ASSERT_CALLBACK, 'dbg::testFail');
         print "<div>ASSERT_CALLBACK</div>";
 
         assert($term);
