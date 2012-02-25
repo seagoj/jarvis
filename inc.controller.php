@@ -57,18 +57,25 @@
 	}
 	
     function parse($body) {
-        
         $lines = explode('@', strip_tags($body));
         foreach($lines AS $line) {
             if(strlen($line)>0) {
-                $value = substr($line,1+strpos($line,' '));
                 $field = substr($line,0,strpos($line,' '));
+                $value = substr($line,1+strpos($line,' '));
+                $value = moveArticles($value);
             }
         }
-        dbg::vardump($lines);
         dbg::vardump($field);
         dbg::vardump($value);
         return $body;
+    }
+    
+    function moveArticles($line) {
+        $first = substr($line,0,strpos($line,' '));
+        if(strtolower($first)=='a' || strtolower($first)=='an' || strtolower=='the') {
+            $line = substr($line,1+strpos($line, '')).", $first";
+        }
+        return $line;
     }
     
 	function getTable($command) {
