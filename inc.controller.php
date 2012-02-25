@@ -18,8 +18,8 @@
         		$nextRet = strpos($body, "<br>");
         		$error .= "End Line Found at $nextRet<br>";
         	}
-        	else if!(strpos($body, "<div>")===false){
-                
+        	else if(!strpos($body, "<div>")===false){
+                print '';
         	} else {
         		$nextRet = strlen($body);
         		$error .= "No End Line<br>$nextRet<br>$body<br>";
