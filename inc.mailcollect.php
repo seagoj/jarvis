@@ -17,14 +17,17 @@ if($emailCount != 0) {
 	for($i=1;$i<=$emailCount;$i++) {
 		
 		$headers = imap_header($imap,$i);
-        dbg::test(is_array($headers),__METHOD__);
+        dbg::test(isset($headers),__METHOD__);
 		$emailFrom = $headers->sender[0]->mailbox.'@'.$headers->sender[0]->host;
-	
+	    dbg::test(strpos($emailFrom, '@') && strpos($emailFrom),'.'),__METHOD__);
 		if (!isset($headers->sender[0])) {
 	    	print "Failed to retrieve headers\n";
 	   	} else {
-	   		if($emailFrom == AUTHEMAIL || $emailFrom == TESTEMAIL) {
+               dbg::test(isset($headers->sender[0]),__METHOD__);
+	   		if($emailFrom==AUTHEMAIL || $emailFrom==TESTEMAIL) {
+                
 	   			$structure = imap_fetchstructure($imap,$i);
+                dbg::test(isset($structure));
 	   			if (!$structure->parts)  {// not multipart
 	   		    	$body = imap_body($imap, $i);
 	   		    }
