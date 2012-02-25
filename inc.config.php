@@ -63,7 +63,9 @@ mysql_query($sql,$conn);
 print mysql_error();
 
 $sql = "SELECT * FROM $configTbl WHERE 1";
-$result = mysql_query($sql,$conn);
+$query = mysql_query($sql,$conn);
+$result = mysql_fetch_assoc($result);
+var_dump($result);
 
 print mysql_error();
 
@@ -73,11 +75,11 @@ print mysql_error();
 //print $sql;
 
 
-    $query = mysql_query($sql,$conn);
-    $result = mysql_fetch_assoc($query);
-    var_dump($result);
+//    $query = mysql_query($sql,$conn);
+//    $result = mysql_fetch_assoc($query);
+//    var_dump($result);
     
-    print mysql_error();
+//    print mysql_error();
     
     //$conn = new model('jarvis');
     //$conn->from('config');
