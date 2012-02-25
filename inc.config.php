@@ -36,7 +36,8 @@ $conn = mysql_connect($mysql_config['host'], $mysql_config['username'], $mysql_c
 
 $sql = "SHOW TABLES FROM $db";
 print "<div>$sql</div>";
-print mysql_query($sql,$conn);
+$query = mysql_query($sql,$conn);
+var_dump($query);
 
 print mysql_error();
 
