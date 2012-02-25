@@ -7,7 +7,7 @@
         $mysql_config = $services_json["mysql-5.1"][0]["credentials"];
     }
     
-    dbg::vardump($mysql_config);
+    //dbg::vardump($mysql_config);
     $db = $mysql_config['name'];
     $musicTbl = '`'.$db.'`.`music`';
     $configTbl = '`'.$db.'`.`config`';
@@ -59,7 +59,7 @@ $sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('userTbl','users')";
 mysql_query($sql,$conn);
 print mysql_error();
 
-$sql = "SELECT * FROM $configTbl WHERE 1";
+$sql = "SELECT * FROM $configTbl";
 print "<div>$sql</div>";
 $query = mysql_query($sql,$conn);
 $result = mysql_fetch_assoc($result);
