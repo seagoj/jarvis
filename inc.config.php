@@ -5,6 +5,7 @@
     $conn = new model('jarvis');
     $conn->from('config');
     $conn->columns('*');
+    $conn->where(1);
     var_dump($conn);
     print $conn->assemble();
     
