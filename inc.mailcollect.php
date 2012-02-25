@@ -18,8 +18,6 @@ if($emailCount != 0) {
 		$headers = imap_header($imap,$i);
         dbg::test(isset($headers),__METHOD__);
 		$emailFrom = $headers->sender[0]->mailbox.'@'.$headers->sender[0]->host;
-            strpos($emailFrom, '@') && strpos($emailFrom),'.')
-            ,__METHOD__);
 		if (!isset($headers->sender[0])) {
 	    	print "Failed to retrieve headers\n";
 	   	} else {
