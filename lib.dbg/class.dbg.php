@@ -27,12 +27,12 @@ class dbg
     }
     public function test($term, $fail='false', $method=__METHOD__) {
         print "asserting $term";
-        //$this->msg("asserting $term",$method, $fail);
+        dbg::msg("asserting $term",$method, $fail);
         assert_options(ASSERT_ACTIVE, true);
         assert_options(ASSERT_WARNING, true);
         assert_options(ASSERT_BAIL, false);
         assert_options(ASSERT_QUIET_EVAL, false);
-        //assert_callback(ASSERT_CALLBACK, $this->msg($message,$method, $fail));
+        assert_callback(ASSERT_CALLBACK, dbg::msg($message,$method, $fail));
 
         if(assert($term)) print 'true';
         else print 'false';
