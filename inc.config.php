@@ -1,5 +1,6 @@
 <?php
     require_once('lib.model/class.model.php');
+    print "test";
     
     $conn = new model('jarvis');
     $conn->from('config');
