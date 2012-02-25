@@ -73,7 +73,7 @@
     function moveArticles($line) {
         $first = substr($line,0,strpos($line,' '));
         dbg::vardump($first);
-        if(strtolower($first)=='a' || strtolower($first)=='an' || strtolower=='the') {
+        if(strtolower($first)=='a' || strtolower($first)=='an' || strtolower($first)=='the') {
             $line = substr($line,1+strpos($line, '')).", $first";
         }
         return $line;
