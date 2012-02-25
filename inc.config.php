@@ -8,9 +8,9 @@
         $mysql_config = $services_json["mysql-5.1"][0]["credentials"];
     }
     
-    dbg::vardump($mysql_config);
-    
-    $musicTbl = '`'.$mysql_config['name'].'`.`music`';
+    //dbg::vardump($mysql_config);
+    $db = $mysql_config['name'];
+    $musicTbl = '`'.$db.'`.`music`';
     
     $sql = "CREATE TABLE  $musicTbl (
 `index` INT NOT NULL AUTO_INCREMENT ,
