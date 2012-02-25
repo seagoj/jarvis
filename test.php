@@ -1,7 +1,6 @@
 <?php
 require_once('lib.dbg/class.dbg.php');
 
-dbg::test(false);
 dbg::test('false');
 
 /*

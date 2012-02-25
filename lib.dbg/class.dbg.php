@@ -26,7 +26,7 @@ class dbg
         print "<span style='color:black;'>$dump</span></div>";
     }
     public function test($term, $fail='false', $method=__METHOD__) {
-        print "<div>Asserting $term</div>";
+        $this->msg("asserting $term"),$method, $fail);
         assert_options(ASSERT_ACTIVE, true);
         assert_options(ASSERT_WARNING, true);
         assert_options(ASSERT_BAIL, false);
