@@ -8,6 +8,7 @@
 	
 	function parse($body) {
 			$data = array();
+            dbg::vardump($body);
 			while (strlen($body)!= 0) {
 				
 				$var = substr($body, strpos($body, "@")+1, strpos($body, " ")-1);
