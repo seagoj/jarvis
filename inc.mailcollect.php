@@ -1,5 +1,5 @@
 <?php
-if(_DEBUG_) print "debug";
+if(_DEBUG_) print "debug mode";
 include_once('inc.controller.php');
 
 $mailserver = "{".MAILHOST.":143/notls}INBOX";
@@ -32,7 +32,7 @@ if($emailCount != 0) {
 	   		unset($data);
 	   }
        /* Uncomment below line to delete captured mail */
-	   //imap_delete($imap, $i);
+	   if(!_DEBUG_) imap_delete($imap, $i);
 	}
 	imap_expunge($imap);
 	imap_close($imap);
