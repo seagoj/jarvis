@@ -23,6 +23,8 @@ INDEX (  `index` )
 ) ENGINE = INNODB";
 */
 
+$sql = "INSERT INTO $musicTBL (`artist`,`album`,`format`) VALUES ('White Stripes, The', 'White Blood Cells', 'CD')";
+
 print $sql;
 
     $conn = mysql_connect($mysql_config['host'], $mysql_config['username'], $mysql_config['password']);
