@@ -36,13 +36,16 @@ class dbg
         print "<div>ASSERT_BAIL</div>";
         assert_options(ASSERT_QUIET_EVAL, false);
         print "<div>ASSERT_QUIET_EVAL</div>";
-        assert_callback(ASSERT_CALLBACK, dbg::msg($term,$method, $fail));
+        assert_callback(ASSERT_CALLBACK, 'testCall');
         print "<div>ASSERT_CALLBACK</div>";
 
         assert($term);
         print "ASSERTED";
         //if(!assert($term)) dbg::msg("ASSERTION: $term is false",$method, $fail);
         //else dbg::msg("Asserted $term.");
+    }
+    private function testCall($file, $line, $code) {
+        dbg::msg($code, '', '', $file, $line);
     }
     public function setNoCache() {
         print "<META HTTP-EQUIV='CACHE-CONTROL' CONTENT='NO-CACHE'>\n<META HTTP-EQUIV='PRAGMA' CONTENT='NO-CACHE'>";
