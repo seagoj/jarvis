@@ -64,7 +64,7 @@ print mysql_error();
 
 $sql = "SELECT * FROM $configTbl WHERE 1";
 print "<div>$sql</div>";
-$query = mysql_query($sql,$conn);
+$query = mysql_query($sql);
 $result = mysql_fetch_assoc($result);
 var_dump($result);
 print mysql_error();
