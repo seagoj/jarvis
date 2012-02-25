@@ -9,11 +9,11 @@
     
     dbg::vardump($mysql_config);
     $db = $mysql_config['name'];
-//    $musicTbl = '`'.$db.'`.`music`';
+//  $musicTbl = '`'.$db.'`.`music`';
     $configTbl = '`'.$db.'`.`config`';
     
     /*
-    $sql = "CREATE TABLE  $musicTbl (
+    $musicSQL = "CREATE TABLE  $musicTbl (
     `index` INT NOT NULL AUTO_INCREMENT ,
     `artist` VARCHAR( 30 ) NOT NULL ,
     `album` VARCHAR( 50 ) NOT NULL ,
@@ -21,21 +21,18 @@
     PRIMARY KEY (  `index` ) ,
     INDEX (  `index` )
     ) ENGINE = INNODB";
+    
+    
+    $configSQL = "CREATE TABLE $configTbl(
+    `index` INT NOT NULL AUTO_INCREMENT ,
+    `name` VARCHAR( 30 ) NOT NULL ,
+    `value` VARCHAR( 50 ) ,
+    PRIMARY KEY (  `index` ) ,
+    INDEX (  `index` )
+    ) ENGINE = INNODB";  
     */
 
 $conn = mysql_connect($mysql_config['host'], $mysql_config['username'], $mysql_config['password']);
-/*
-$sql = "CREATE TABLE $configTbl(
-`index` INT NOT NULL AUTO_INCREMENT ,
-`name` VARCHAR( 30 ) NOT NULL ,
-`value` VARCHAR( 50 ) ,
-PRIMARY KEY (  `index` ) ,
-INDEX (  `index` )
-) ENGINE = INNODB";
-
-mysql_query($sql,$conn);
-print mysql_error();
-*/
 
 $sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('musicTbl','music')";
 mysql_query($sql,$conn);
@@ -67,21 +64,9 @@ print "<div>$sql</div>";
 $query = mysql_query($sql,$conn);
 $result = mysql_fetch_assoc($result);
 var_dump($result);
-
 print mysql_error();
 
 
-//$sql = "SELECT * FROM $musicTbl WHERE 1";
-
-//print $sql;
-
-
-//    $query = mysql_query($sql,$conn);
-//    $result = mysql_fetch_assoc($query);
-//    var_dump($result);
-    
-//    print mysql_error();
-    
     //$conn = new model('jarvis');
     //$conn->from('config');
     //$conn->columns('*');
