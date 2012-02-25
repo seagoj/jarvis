@@ -8,17 +8,17 @@ include_once('inc.controller.php');
 print "</head>\n<body>\n";
 
 $mailserver = "{".MAILHOST.":143/notls}INBOX";
-dbg::assert($mailserver=="{mail.seagoj.com:143/notls}INBOX");
+dbg::test($mailserver=="{mail.seagoj.com:143/notls}INBOX");
 $imap = imap_open($mailserver, EMAIL, PASS);
-dbg::assert(imap_errors()==NULL);
+dbg::test(imap_errors()==NULL);
 $emailCount = imap_num_msg($imap);
-dbg::assert(imap_errors()==NULL);
+dbg::test(imap_errors()==NULL);
 
 if($emailCount != 0) {
 	for($i=1;$i<=$emailCount;$i++) {
 		
 		$headers = imap_header($imap,$i);
-        dbg::assert($headers=="noway");
+        dbg::test($headers=="noway");
 		$emailFrom = $headers->sender[0]->mailbox.'@'.$headers->sender[0]->host;
 	
 		if (!isset($headers->sender[0])) {
