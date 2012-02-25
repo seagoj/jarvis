@@ -59,7 +59,15 @@
     function parse($body) {
         
         $lines = explode('@', strip_tags($body));
+        foreach($lines AS $line) {
+            if(strlen($line)>0) {
+                $value = substr($line,1+strpos($line,' '));
+                $field = substr($line,0,strpos($line,' '));
+            }
+        }
         dbg::vardump($lines);
+        dbg::vardump($field);
+        dbg::vardump($value);
         return $body;
     }
     
