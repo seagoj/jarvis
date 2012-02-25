@@ -8,12 +8,12 @@ include_once('inc.controller.php');
 print "</head>\n<body>\n";
 
 $mailserver = "{".MAILHOST.":143/notls}INBOX";
-dbg::test($mailserver=="{mail.seagoj.com:143/notls}INBOX");
+dbg::test($mailserver=="{mail.seagoj.com:143/notls}INBOX",__METHOD__);
 $imap = imap_open($mailserver, EMAIL, PASS);
 dbg::vardump($imap);
-dbg::test(imap_errors()==NULL);
+dbg::test(imap_errors()==NULL||is_object($imap), __METHOD__);
 $emailCount = imap_num_msg($imap);
-dbg::test(imap_errors()==NULL);
+dbg::test(imap_errors()==NULL||is_object($imap), __METHOD__);
 
 if($emailCount != 0) {
 	for($i=1;$i<=$emailCount;$i++) {

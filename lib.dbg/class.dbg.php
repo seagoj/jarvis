@@ -25,7 +25,7 @@ class dbg
         $label=='' ? print '' : print "<span style='color:red;'>$label</span>: ";
         print "<span style='color:black;'>$dump</span></div>";
     }
-    public function test($term, $fail='false', $method='') {
+    public function test($term, $method='', $fail='false') {
         assert_options(ASSERT_ACTIVE, true);
         assert_options(ASSERT_WARNING, true);
         assert_options(ASSERT_BAIL, false);
