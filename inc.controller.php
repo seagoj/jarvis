@@ -58,7 +58,7 @@
 	
     function parse($body) {
         
-        $lines = explode(strip_tags($body), '@');
+        $lines = explode('@', strip_tags($body));
         dbg::vardump($lines);
         return $body;
     }
