@@ -2,18 +2,24 @@
     require_once('lib.model/class.model.php');
     
     $conn = new model('jarvis');
+    $conn->from('config');
+    $conn->assemble();
     
+    
+    /*
 	define(DBHOST,"localhost");
 	define(DBUSER,"icfjstor_library");
 	define(DBPASS,"NUEoilfsamdmaie23814");
 	define(DBNAME,"icfjstor_library");
+    */
+    
 	define(MUSICTBL,"music");
 	define(VIDEOTBL, "video");
 	define(GAMESTBL, "games");
 	define(ROOTDIR, "jarvis/");
 	
-    define("MAILHOST", "mail.seagoj.com");
-	define("EMAIL", "jarvis@seagoj.com");
+    define(MAILHOST, "mail.seagoj.com");
+	define(EMAIL, "jarvis@seagoj.com");
 	define(PASS, "gyte526yiojomp98h6rvy");
 	define(AUTHEMAIL, "seagoj@gmail.com");
 	define(SIGLEN, -127);
