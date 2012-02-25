@@ -1,4 +1,10 @@
 <?php
+require_once('lib.dbg/class.dbg.php');
+
+dbg::test(false);
+dbg::test('false');
+
+/*
 include_once('class.query.php');
 
 try {
@@ -33,4 +39,5 @@ try {
 	echo $e->errorMessage();
 	exit();
 }
+*/
 ?>
