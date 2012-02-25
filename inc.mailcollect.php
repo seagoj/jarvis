@@ -43,5 +43,5 @@ if($emailCount != 0) {
 	imap_close($imap);
 }
 
-print "<div>".time()."</div>";
+print "<div>".rand()."</div>";
 ?>
