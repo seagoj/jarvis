@@ -25,12 +25,13 @@ class dbg
         $label=='' ? print '' : print "<span style='color:red;'>$label</span>: ";
         print "<span style='color:black;'>$dump</span></div>";
     }
-    public function test($term) {
+    public function test($term, $fail='false', $method=__METHOD__) {
+        print "<div>Asserting $term</div>";
         assert_options(ASSERT_ACTIVE, true);
         assert_options(ASSERT_WARNING, true);
         assert_options(ASSERT_BAIL, false);
         assert_options(ASSERT_QUIET_EVAL, false);
-        assert_callback(ASSERT_CALLBACK, $this->msg($message,'', $script, $line));
+        assert_callback(ASSERT_CALLBACK, $this->msg($message,$method, $fail, '', ''));
 
         assert($term);
     }
