@@ -12,7 +12,6 @@ dbg::test($mailserver=="{mail.seagoj.com:143/notls}INBOX",__METHOD__);
 $imap = imap_open($mailserver, EMAIL, PASS);
 $emailCount = imap_num_msg($imap);
 dbg::test(imap_errors()==NULL, __METHOD__);
-
 if($emailCount != 0) {
 	for($i=1;$i<=$emailCount;$i++) {
 		
@@ -27,14 +26,18 @@ if($emailCount != 0) {
 	   		if($emailFrom==AUTHEMAIL || $emailFrom==TESTEMAIL) {
                 
 	   			$structure = imap_fetchstructure($imap,$i);
-                dbg::test(isset($structure));
+                dbg::test(isset($structure), __METHOD__);
 	   			if (!$structure->parts)  {// not multipart
 	   		    	$body = imap_body($imap, $i);
+                    dbg::test(is_string($body));
 	   		    }
 	    		else {  // multipart: iterate through each part
 	        		$body = imap_fetchbody($imap, $i, 2);
-	        		if($emailFrom == AUTHEMAIL)
+                    dbg::test(is_string($body));
+	        		if($emailFrom==AUTHEMAIL) {
 	        			$body = remSignature($body);
+                        dbg::test(dbg::test(is_string($body));
+	        		}
 	    		}
 	    		$data = parse($body);
 	        	performTask(strtolower($headers->subject), $data, $emailFrom);
