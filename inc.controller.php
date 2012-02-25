@@ -58,16 +58,18 @@
 	
     function parse($body) {
         $lines = explode('@', strip_tags($body));
+        $data = array();
         foreach($lines AS $line) {
             if(strlen($line)>0) {
                 $field = substr($line,0,strpos($line,' '));
                 $value = substr($line,1+strpos($line,' '));
                 $value = moveArticles($value);
+                $data = array_merge($data, array($field=>$value));
             }
         }
-        dbg::vardump($field);
-        dbg::vardump($value);
-        return $body;
+        
+        dbg::vardump($data);
+        return $data;
     }
     
     function moveArticles($line) {
