@@ -9,7 +9,7 @@
     
     dbg::vardump($mysql_config);
     $db = $mysql_config['name'];
-//  $musicTbl = '`'.$db.'`.`music`';
+    $musicTbl = '`'.$db.'`.`music`';
     $configTbl = '`'.$db.'`.`config`';
     
     /*
@@ -34,11 +34,9 @@
 
 $conn = mysql_connect($mysql_config['host'], $mysql_config['username'], $mysql_config['password']);
 
-/*
 $sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('musicTbl','music')";
 mysql_query($sql,$conn);
 print mysql_error();
-*/
 $sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('movieTbl','movies')";
 mysql_query($sql,$conn);
 print mysql_error();
@@ -81,7 +79,6 @@ print mysql_error();
 	define(DBUSER,"icfjstor_library");
 	define(DBPASS,"NUEoilfsamdmaie23814");
 	define(DBNAME,"icfjstor_library");
-    */
     
 	define(MUSICTBL,"music");
 	define(VIDEOTBL, "video");
@@ -95,6 +92,7 @@ print mysql_error();
 	define(SIGLEN, -127);
 	define(TESTEMAIL, "kat.dankel@gmail.com");
 	
-	//mysql_connect(DBHOST,DBUSER,DBPASS) or die("connection");
-	//mysql_select_db(DBNAME) or die("selection");
+	mysql_connect(DBHOST,DBUSER,DBPASS) or die("connection");
+	mysql_select_db(DBNAME) or die("selection");
+    */
 ?>
