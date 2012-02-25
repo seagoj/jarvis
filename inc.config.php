@@ -3,7 +3,7 @@
     
     $conn = new model('jarvis');
     $conn->from('config');
-    $conn->assemble();
+    print $conn->assemble();
     
     
     /*
