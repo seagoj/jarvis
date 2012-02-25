@@ -22,7 +22,7 @@ if($emailCount != 0) {
 		if (!isset($headers->sender[0])) {
 	    	print "Failed to retrieve headers\n";
 	   	} else {
-               //dbg::test(isset($headers->sender[0]),__METHOD__);
+            dbg::test(isset($headers->sender[0]),__METHOD__);
 	   		if($emailFrom==AUTHEMAIL || $emailFrom==TESTEMAIL) {
                 
 	   			$structure = imap_fetchstructure($imap,$i);
