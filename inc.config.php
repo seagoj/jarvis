@@ -12,6 +12,7 @@
     $db = $mysql_config['name'];
     $musicTbl = '`'.$db.'`.`music`';
     
+    /*
     $sql = "CREATE TABLE  $musicTbl (
 `index` INT NOT NULL AUTO_INCREMENT ,
 `artist` VARCHAR( 30 ) NOT NULL ,
@@ -20,6 +21,7 @@
 PRIMARY KEY (  `index` ) ,
 INDEX (  `index` )
 ) ENGINE = INNODB";
+*/
 
 print $sql;
 
