@@ -12,8 +12,9 @@
 class dbg
 {
     function __construct()
-    {}
-
+    {
+        $this->setNoCache();
+    }
     public function msg($message, $method='', $file='', $line='')
     {
         print "<div class='err'>";
@@ -29,6 +30,10 @@ class dbg
         print "<div class='err'>";
         $label=='' ? print '' : print "<span style='color:red;'>$label</span>: ";
         print "<span style='color:black;'>$dump</span></div>";
+    }
+    
+    public function setNoCache() {
+        print '<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">\n<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">';
     }
 }
 ?>
