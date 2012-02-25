@@ -25,17 +25,17 @@ class dbg
         $label=='' ? print '' : print "<span style='color:red;'>$label</span>: ";
         print "<span style='color:black;'>$dump</span></div>";
     }
-    public function test($term, $fail='false', $method=__METHOD__) {
+    public function test($term, $fail='false', $method='') {
         print "asserting $term";
-        dbg::msg("asserting $term",$method, $fail);
+        
         assert_options(ASSERT_ACTIVE, true);
         assert_options(ASSERT_WARNING, true);
         assert_options(ASSERT_BAIL, false);
         assert_options(ASSERT_QUIET_EVAL, false);
         assert_callback(ASSERT_CALLBACK, dbg::msg($message,$method, $fail));
 
-        if(assert($term)) print 'true';
-        else print 'false';
+        if(!assert($term)) dbg::msg("ASSERTION: $term is false",$method, $fail);;
+        else dbg::msg("Asserted $term.");
     }
     public function setNoCache() {
         print "<META HTTP-EQUIV='CACHE-CONTROL' CONTENT='NO-CACHE'>\n<META HTTP-EQUIV='PRAGMA' CONTENT='NO-CACHE'>";
