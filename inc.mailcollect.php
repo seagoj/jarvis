@@ -10,7 +10,6 @@ print "</head>\n<body>\n";
 $mailserver = "{".MAILHOST.":143/notls}INBOX";
 dbg::test($mailserver=="{mail.seagoj.com:143/notls}INBOX",__METHOD__);
 $imap = imap_open($mailserver, EMAIL, PASS);
-dbg::vardump($imap);
 dbg::test(!isset(imap_errors()), __METHOD__);
 $emailCount = imap_num_msg($imap);
 
