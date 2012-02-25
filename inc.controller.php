@@ -68,7 +68,6 @@
             }
         }
         
-        dbg::vardump($data);
         return $data;
     }
     
