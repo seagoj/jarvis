@@ -155,7 +155,7 @@
    					foreach ($data as $key=>$value){
 						$srchQry.=" AND `".$key."`='".$value."'";
    					}
-   				//print $srchQry;
+   				print $srchQry;
    				$srchRes = mysql_query($srchQry);
    				$cols = mysql_query("select column_name from information_schema.columns where table_name='".$table."'; ");
 
