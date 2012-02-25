@@ -34,9 +34,11 @@
 
 $conn = mysql_connect($mysql_config['host'], $mysql_config['username'], $mysql_config['password']);
 
+/*
 $sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('musicTbl','music')";
 mysql_query($sql,$conn);
 print mysql_error();
+*/
 $sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('movieTbl','movies')";
 mysql_query($sql,$conn);
 print mysql_error();
