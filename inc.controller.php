@@ -6,7 +6,8 @@
 		return substr($email, 0, strpos($email, "<br clear=\"all\">"));
 	}
 	
-	function parse($body) {
+	function parse_v1($body)
+    {
 		$data = array();
         dbg::vardump($body);
 		while (strlen($body)!= 0) {
@@ -17,7 +18,9 @@
         		$nextRet = strpos($body, "<br>");
         		$error .= "End Line Found at $nextRet<br>";
         	}
-        	else {
+        	else if!(strpos($body, "<div>")===false){
+                
+        	} else {
         		$nextRet = strlen($body);
         		$error .= "No End Line<br>$nextRet<br>$body<br>";
         	}
@@ -53,6 +56,10 @@
 		return $data;
 	}
 	
+    function parse($body) {
+        dbg::msg(strip_tags($body)); 
+    }
+    
 	function getTable($command) {
 		if(!(strpos($command, "music")===false))
 			$table = MUSICTBL;
