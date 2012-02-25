@@ -4,6 +4,7 @@
     
     $conn = new model('jarvis');
     $conn->from('config');
+    var_dump($conn);
     print $conn->assemble();
     
     
