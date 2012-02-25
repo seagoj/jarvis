@@ -26,21 +26,14 @@ class dbg
         print "<span style='color:black;'>$dump</span></div>";
     }
     public function test($term, $method='', $fail='false') {
-        print "<div>PRINT</div>";
-        dbg::msg("message");
         assert_options(ASSERT_ACTIVE, true);
-        print "<div>ASSERT_ACTIVE</div>";
         assert_options(ASSERT_WARNING, true);
-        print "<div>ASSERT_WARNING</div>";
         assert_options(ASSERT_BAIL, false);
-        print "<div>ASSERT_BAIL</div>";
         assert_options(ASSERT_QUIET_EVAL, false);
-        print "<div>ASSERT_QUIET_EVAL</div>";
         assert_options(ASSERT_CALLBACK, 'testFail');
-        print "<div>ASSERT_CALLBACK</div>";
 
-        assert($term);
-        print "ASSERTED";
+        if(assert($term)) print "ASSERTED";
+        
         //if(!assert($term)) dbg::msg("ASSERTION: $term is false",$method, $fail);
         //else dbg::msg("Asserted $term.");
     }
