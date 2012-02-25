@@ -45,6 +45,6 @@ if($emailCount != 0) {
 	imap_close($imap);
 }
 
-print "<div>".rand()."</div>";
+dbg::msg(rand());
 print "</body>\n</html>";
 ?>
