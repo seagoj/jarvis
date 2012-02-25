@@ -33,7 +33,7 @@ class dbg
         //assert_callback(ASSERT_CALLBACK, dbg::msg($message,$method, $fail));
 
         if(!assert($term)) dbg::msg("ASSERTION: $term is false",$method, $fail);
-        else dbg::msg("Asserted $term.");
+        //else dbg::msg("Asserted $term.");
     }
     public function setNoCache() {
         print "<META HTTP-EQUIV='CACHE-CONTROL' CONTENT='NO-CACHE'>\n<META HTTP-EQUIV='PRAGMA' CONTENT='NO-CACHE'>";
