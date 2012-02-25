@@ -35,6 +35,7 @@ INDEX (  `index` )
 
 mysql_query($sql,$conn);
 print mysql_error();
+*/
 
 $sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('musicTbl','music')";
 mysql_query($sql,$conn);
@@ -60,7 +61,7 @@ print mysql_error();
 $sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('userTbl','users')";
 mysql_query($sql,$conn);
 print mysql_error();
-*/
+
 $sql = "SELECT * FROM $configTbl WHERE 1";
 $result = mysql_query($sql,$conn);
 
