@@ -33,6 +33,7 @@ class dbg
         assert_callback(ASSERT_CALLBACK, dbg::msg($term,$method, $fail));
 
         assert($term);
+        print "ASSERTED";
         //if(!assert($term)) dbg::msg("ASSERTION: $term is false",$method, $fail);
         //else dbg::msg("Asserted $term.");
     }
