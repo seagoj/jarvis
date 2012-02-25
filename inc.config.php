@@ -10,8 +10,9 @@
     
     dbg::vardump($mysql_config);
     
-    /*
-    $sql = "CREATE TABLE  `464119_portfolio`.`music` (
+    $musicTbl = '`'.$mysql_config['name'].'`.`music`';
+    
+    $sql = "CREATE TABLE  $musicTbl (
 `index` INT NOT NULL AUTO_INCREMENT ,
 `artist` VARCHAR( 30 ) NOT NULL ,
 `album` VARCHAR( 50 ) NOT NULL ,
@@ -19,7 +20,9 @@
 PRIMARY KEY (  `index` ) ,
 INDEX (  `index` )
 ) ENGINE = INNODB";
-*/
+
+print $sql;
+
     
     $conn = new model('jarvis');
     //$conn->from('config');
