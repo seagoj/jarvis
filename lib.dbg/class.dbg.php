@@ -32,7 +32,7 @@ class dbg
         assert_options(ASSERT_QUIET_EVAL, false);
         //assert_callback(ASSERT_CALLBACK, dbg::msg($message,$method, $fail));
 
-        if(!assert($term)) dbg::msg("ASSERTION: $term is false",$method, $fail);
+        //if(!assert($term)) dbg::msg("ASSERTION: $term is false",$method, $fail);
         //else dbg::msg("Asserted $term.");
     }
     public function setNoCache() {
