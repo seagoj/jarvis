@@ -10,6 +10,7 @@
     
     dbg::vardump($mysql_config);
     
+    /*
     $sql = "CREATE TABLE  `464119_portfolio`.`music` (
 `index` INT NOT NULL AUTO_INCREMENT ,
 `artist` VARCHAR( 30 ) NOT NULL ,
@@ -17,7 +18,8 @@
 `format` VARCHAR( 10 ) NOT NULL ,
 PRIMARY KEY (  `index` ) ,
 INDEX (  `index` )
-) ENGINE = INNODB"
+) ENGINE = INNODB";
+*/
     
     $conn = new model('jarvis');
     //$conn->from('config');
