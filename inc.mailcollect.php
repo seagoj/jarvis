@@ -17,7 +17,7 @@ if($emailCount != 0) {
 	for($i=1;$i<=$emailCount;$i++) {
 		
 		$headers = imap_header($imap,$i);
-        dbg::test($headers=="noway",__METHOD__);
+        dbg::test(is_array($headers),__METHOD__);
 		$emailFrom = $headers->sender[0]->mailbox.'@'.$headers->sender[0]->host;
 	
 		if (!isset($headers->sender[0])) {
