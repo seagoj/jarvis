@@ -7,32 +7,31 @@
 	}
 	
 	function parse($body) {
-			$data = array();
-            dbg::vardump($body);
-			while (strlen($body)!= 0) {
+		$data = array();
+        dbg::vardump($body);
+		while (strlen($body)!= 0) {
+		    $var = substr($body, strpos($body, "@")+1, strpos($body, " ")-1);
+			$token = "@".$var." ";
 				
-				$var = substr($body, strpos($body, "@")+1, strpos($body, " ")-1);
-				$token = "@".$var." ";
-				
-        		if(!(strpos($body, "<br>")===false)) {
-        			$nextRet = strpos($body, "<br>");
-        			$error .= "End Line Found at $nextRet<br>";
-        		}
-        		else {
-        			$nextRet = strlen($body);
-        			$error .= "No End Line<br>$nextRet<br>$body<br>";
-        		}
-        		$$var = ucwords(substr($body, strpos($body, $token)+strlen($token), $nextRet-strpos($body, $token)-strlen($token)));
-        		if(substr($$var, 0, 3)=="The") {
-        			$$var = substr($$var, 4).", The";
-                    dbg::vardump($$var);
-        		}
-        		$data = array_merge($data, array($var=>$$var));
-        		if(!(strpos($body, "<br>")===false)) {
-        			$body = substr($body, strpos($body, "<br>")+4);
-        		} else { 
-        			$body = '';
-        		}
+        	if(!(strpos($body, "<br>")===false)) {
+        		$nextRet = strpos($body, "<br>");
+        		$error .= "End Line Found at $nextRet<br>";
+        	}
+        	else {
+        		$nextRet = strlen($body);
+        		$error .= "No End Line<br>$nextRet<br>$body<br>";
+        	}
+        	$$var = ucwords(substr($body, strpos($body, $token)+strlen($token), $nextRet-strpos($body, $token)-strlen($token)));
+        	if(substr($$var, 0, 3)=="The") {
+        		$$var = substr($$var, 4).", The";
+                //dbg::vardump($$var);
+        	}
+        	$data = array_merge($data, array($var=>$$var));
+        	if(!(strpos($body, "<br>")===false)) {
+        		$body = substr($body, strpos($body, "<br>")+4);
+        	} else { 
+        		$body = '';
+        	}
 				
 				
 				/* DEVELOPMENT
@@ -48,9 +47,9 @@
 				
 				$data = array_merge($data, array($var=>$$var));
 				*/
-			}
-			//print_r($data);
-			//mail("seagoj@gmail.com", "debug", $data['upc'], "from:<jarvis@seagoj.com>\nContent-Type: text/html; charset=iso-8859-1");
+		}
+		//print_r($data);
+		//mail("seagoj@gmail.com", "debug", $data['upc'], "from:<jarvis@seagoj.com>\nContent-Type: text/html; charset=iso-8859-1");
 		return $data;
 	}
 	
