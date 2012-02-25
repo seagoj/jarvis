@@ -1,12 +1,10 @@
 <?php
     require_once('lib.model/class.model.php');
-    print "test";
     
     $conn = new model('jarvis');
     $conn->from('config');
     $conn->columns('*');
     $conn->where(1);
-    var_dump($conn);
     print $conn->assemble();
     
     
