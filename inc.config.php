@@ -28,7 +28,10 @@ $sql = "SELECT * FROM $musicTbl WHERE 1";
 print $sql;
 
     $conn = mysql_connect($mysql_config['host'], $mysql_config['username'], $mysql_config['password']);
-    mysql_query($sql,$conn);
+    $query = mysql_query($sql,$conn);
+    $result = $mysql_fetch_assoc($query);
+    dbg::vardump($result);
+    
     print mysql_error();
     
     //$conn = new model('jarvis');
