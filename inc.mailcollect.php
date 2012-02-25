@@ -18,25 +18,25 @@ if($emailCount != 0) {
 		$headers = imap_header($imap,$i);
         dbg::test(isset($headers),__METHOD__);
 		$emailFrom = $headers->sender[0]->mailbox.'@'.$headers->sender[0]->host;
-	    dbg::test(strpos($emailFrom, '@') && strpos($emailFrom),'.'),__METHOD__);
+	    //dbg::test(strpos($emailFrom, '@') && strpos($emailFrom),'.'),__METHOD__);
 		if (!isset($headers->sender[0])) {
 	    	print "Failed to retrieve headers\n";
 	   	} else {
-               dbg::test(isset($headers->sender[0]),__METHOD__);
+               //dbg::test(isset($headers->sender[0]),__METHOD__);
 	   		if($emailFrom==AUTHEMAIL || $emailFrom==TESTEMAIL) {
                 
 	   			$structure = imap_fetchstructure($imap,$i);
-                dbg::test(isset($structure), __METHOD__);
+                //dbg::test(isset($structure), __METHOD__);
 	   			if (!$structure->parts)  {// not multipart
 	   		    	$body = imap_body($imap, $i);
-                    dbg::test(is_string($body));
+                //    dbg::test(is_string($body), __METHOD__);
 	   		    }
 	    		else {  // multipart: iterate through each part
 	        		$body = imap_fetchbody($imap, $i, 2);
-                    dbg::test(is_string($body));
+                //    dbg::test(is_string($body, __METHOD__));
 	        		if($emailFrom==AUTHEMAIL) {
 	        			$body = remSignature($body);
-                        dbg::test(dbg::test(is_string($body));
+                //        dbg::test(dbg::test(is_string($body), __METHOD__);
 	        		}
 	    		}
 	    		$data = parse($body);
