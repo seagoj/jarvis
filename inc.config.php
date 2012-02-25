@@ -23,7 +23,7 @@ INDEX (  `index` )
 ) ENGINE = INNODB";
 */
 
-$sql = "INSERT INTO $musicTbl (`artist`,`album`,`format`) VALUES ('White Stripes, The', 'White Blood Cells', 'CD')";
+$sql = "SELECT * FROM $musicTbl WHERE 1";
 
 print $sql;
 
