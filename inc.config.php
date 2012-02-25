@@ -14,21 +14,21 @@
     
     /*
     $sql = "CREATE TABLE  $musicTbl (
-`index` INT NOT NULL AUTO_INCREMENT ,
-`artist` VARCHAR( 30 ) NOT NULL ,
-`album` VARCHAR( 50 ) NOT NULL ,
-`format` VARCHAR( 10 ) NOT NULL ,
-PRIMARY KEY (  `index` ) ,
-INDEX (  `index` )
-) ENGINE = INNODB";
-*/
+    `index` INT NOT NULL AUTO_INCREMENT ,
+    `artist` VARCHAR( 30 ) NOT NULL ,
+    `album` VARCHAR( 50 ) NOT NULL ,
+    `format` VARCHAR( 10 ) NOT NULL ,
+    PRIMARY KEY (  `index` ) ,
+    INDEX (  `index` )
+    ) ENGINE = INNODB";
+    */
 
 $conn = mysql_connect($mysql_config['host'], $mysql_config['username'], $mysql_config['password']);
-
+/*
 $sql = "CREATE TABLE $configTbl(
 `index` INT NOT NULL AUTO_INCREMENT ,
 `name` VARCHAR( 30 ) NOT NULL ,
-`value` VARCHAR( 50 ),
+`value` VARCHAR( 50 ) ,
 PRIMARY KEY (  `index` ) ,
 INDEX (  `index` )
 ) ENGINE = INNODB";
@@ -60,6 +60,13 @@ print mysql_error();
 $sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('userTbl','users')";
 mysql_query($sql,$conn);
 print mysql_error();
+*/
+$sql = "SELECT * FROM $configTbl WHERE 1";
+$result = mysql_query($sql,$conn);
+
+print mysql_error();
+
+
 //$sql = "SELECT * FROM $musicTbl WHERE 1";
 
 //print $sql;
