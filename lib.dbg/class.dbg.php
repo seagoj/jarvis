@@ -33,7 +33,8 @@ class dbg
         assert_options(ASSERT_QUIET_EVAL, false);
         assert_callback(ASSERT_CALLBACK, $this->msg($message,$method, $fail));
 
-        assert($term);
+        if(assert($term)) print 'true';
+        else print 'false';
     }
     public function setNoCache() {
         print "<META HTTP-EQUIV='CACHE-CONTROL' CONTENT='NO-CACHE'>\n<META HTTP-EQUIV='PRAGMA' CONTENT='NO-CACHE'>";
