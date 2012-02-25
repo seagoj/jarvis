@@ -1,4 +1,5 @@
 <?php
+if(_DEBUG_) print "debug";
 include_once('inc.controller.php');
 
 $mailserver = "{".MAILHOST.":143/notls}INBOX";
