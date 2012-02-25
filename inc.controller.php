@@ -74,7 +74,7 @@
         $first = substr($line,0,strpos($line,' '));
         dbg::vardump($first);
         if(strtolower($first)=='a' || strtolower($first)=='an' || strtolower($first)=='the') {
-            $line = substr($line,1+strpos($line, '')).", $first";
+            $line = substr($line,strlen($first)+1+strpos($line, '')).", $first";
         }
         return $line;
     }
