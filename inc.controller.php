@@ -57,7 +57,8 @@
 	}
 	
     function parse($body) {
-        dbg::msg(strip_tags($body)); 
+        dbg::msg(strip_tags($body));
+        return $body;
     }
     
 	function getTable($command) {
