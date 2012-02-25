@@ -1,11 +1,29 @@
 <?php
     require_once('lib.model/class.model.php');
     
+    
+    $services = getenv("VCAP_SERVICES");
+    if($services) {
+        $services_json = json_decode($services,true);
+        $mysql_config = $services_json["mysql-5.1"][0]["credentials"];
+    }
+    
+    dbg::vardump($mysql_config);
+    
+    $sql = "CREATE TABLE  `464119_portfolio`.`music` (
+`index` INT NOT NULL AUTO_INCREMENT ,
+`artist` VARCHAR( 30 ) NOT NULL ,
+`album` VARCHAR( 50 ) NOT NULL ,
+`format` VARCHAR( 10 ) NOT NULL ,
+PRIMARY KEY (  `index` ) ,
+INDEX (  `index` )
+) ENGINE = INNODB"
+    
     $conn = new model('jarvis');
-    $conn->from('config');
-    $conn->columns('*');
-    $conn->where(1);
-    print $conn->assemble();
+    //$conn->from('config');
+    //$conn->columns('*');
+    //$conn->where(1);
+    //print $conn->assemble();
     
     
     /*
