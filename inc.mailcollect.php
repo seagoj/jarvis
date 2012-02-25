@@ -10,14 +10,14 @@ print "</head>\n<body>\n";
 $mailserver = "{".MAILHOST.":143/notls}INBOX";
 dbg::test($mailserver=="{mail.seagoj.com:143/notls}INBOX",__METHOD__);
 $imap = imap_open($mailserver, EMAIL, PASS);
-//dbg::test(imap_errors()==NULL, __METHOD__);
 $emailCount = imap_num_msg($imap);
+dbg::test(imap_errors()==NULL, __METHOD__);
 
 if($emailCount != 0) {
 	for($i=1;$i<=$emailCount;$i++) {
 		
 		$headers = imap_header($imap,$i);
-        //dbg::test($headers=="noway");
+        dbg::test($headers=="noway",__METHOD__);
 		$emailFrom = $headers->sender[0]->mailbox.'@'.$headers->sender[0]->host;
 	
 		if (!isset($headers->sender[0])) {
