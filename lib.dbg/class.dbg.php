@@ -32,10 +32,7 @@ class dbg
         assert_options(ASSERT_QUIET_EVAL, false);
         assert_options(ASSERT_CALLBACK, 'testFail');
 
-        if(assert($term)) dbg::msg("$method $term Asserted");
-        
-        //if(!assert($term)) dbg::msg("ASSERTION: $term is false",$method, $fail);
-        //else dbg::msg("Asserted $term.");
+        assert($term);
     }
     private function testFail() {
         dbg::msg("Assertion Failed");
