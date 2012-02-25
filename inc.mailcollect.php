@@ -3,9 +3,7 @@ include_once('inc.controller.php');
 
 $mailserver = "{".MAILHOST.":143/notls}INBOX";
 $imap = imap_open($mailserver, EMAIL, PASS);
-//var_dump($imap_errors);
 $emailCount = imap_num_msg($imap);
-//var_dump($emailCount);
 
 if($emailCount != 0) {
 	for($i=1;$i<=$emailCount;$i++) {
@@ -17,15 +15,12 @@ if($emailCount != 0) {
 	    	print "Failed to retrieve headers\n";
 	   	} else {
 	   		if($emailFrom == AUTHEMAIL || $emailFrom == TESTEMAIL) {
-                print "from valid email<br />";
 	   			$structure = imap_fetchstructure($imap,$i);
-                var_dump($structure);
-	   			if (!$structure->parts)  {// not multipart
+	   			if (!$structure->parts)  { // not multipart
 	   		    	$body = imap_body($imap, $i);
 	   		    }
 	    		else {  // multipart: iterate through each part
 	        		$body = imap_fetchbody($imap, $i, 2);
-	        		print "<div>$body</div>";
                     $body = remSignature($body);
                     print "<div>$body</div>";
 	    		}
