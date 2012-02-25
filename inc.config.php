@@ -1,7 +1,6 @@
 <?php
     require_once('lib.model/class.model.php');
     
-    
     $services = getenv("VCAP_SERVICES");
     if($services) {
         $services_json = json_decode($services,true);
@@ -10,7 +9,8 @@
     
     dbg::vardump($mysql_config);
     $db = $mysql_config['name'];
-    $musicTbl = '`'.$db.'`.`music`';
+//    $musicTbl = '`'.$db.'`.`music`';
+    $configTbl = '`'.$db.'`.`config`';
     
     /*
     $sql = "CREATE TABLE  $musicTbl (
@@ -23,11 +23,48 @@ INDEX (  `index` )
 ) ENGINE = INNODB";
 */
 
-$sql = "SELECT * FROM $musicTbl WHERE 1";
+$conn = mysql_connect($mysql_config['host'], $mysql_config['username'], $mysql_config['password']);
 
-print $sql;
+$sql = "CREATE TABLE $configTbl(
+`index` INT NOT NULL AUTO_INCREMENT ,
+`name` VARCHAR( 30 ) NOT NULL ,
+`value` VARCHAR( 50 ),
+PRIMARY KEY (  `index` ) ,
+INDEX (  `index` )
+) ENGINE = INNODB";
 
-    $conn = mysql_connect($mysql_config['host'], $mysql_config['username'], $mysql_config['password']);
+mysql_query($sql,$conn);
+print mysql_error();
+
+$sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('musicTbl','music')";
+mysql_query($sql,$conn);
+print mysql_error();
+$sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('movieTbl','movies')";
+mysql_query($sql,$conn);
+print mysql_error();
+$sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('bookTbl','books')";
+mysql_query($sql,$conn);
+print mysql_error();
+$sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('gameTbl','games')";
+mysql_query($sql,$conn);
+print mysql_error();
+$sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('mailHost','mail.seagoj.com')";
+mysql_query($sql,$conn);
+print mysql_error();
+$sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('email','jarvis@seagoj.com')";
+mysql_query($sql,$conn);
+print mysql_error();
+$sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('emailPass','gyte526yiojomp98h6rvy')";
+mysql_query($sql,$conn);
+print mysql_error();
+$sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('userTbl','users')";
+mysql_query($sql,$conn);
+print mysql_error();
+//$sql = "SELECT * FROM $musicTbl WHERE 1";
+
+//print $sql;
+
+
     $query = mysql_query($sql,$conn);
     $result = mysql_fetch_assoc($query);
     var_dump($result);
