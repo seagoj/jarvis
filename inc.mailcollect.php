@@ -1,18 +1,17 @@
 <?php
-print "<html><head>";
+print "<html>\n<head>\n";
 if(_DEBUG_) {
     require_once('lib.dbg/class.dbg.php');
     dbg::setNoCache();
 }
 include_once('inc.controller.php');
-print "</head><body>";
+print "</head>\n<body>\n";
 
 $mailserver = "{".MAILHOST.":143/notls}INBOX";
-//var_dump($mailserver);
+dbg::assert($mailserver=="{mail.seagoj.com:143/notls}INBOX");
 $imap = imap_open($mailserver, EMAIL, PASS);
-//var_dump($imap);
+dbg::assert(imap_errors()==NULL);
 $emailCount = imap_num_msg($imap);
-//var_dump($emailCount);
 
 if($emailCount != 0) {
 	for($i=1;$i<=$emailCount;$i++) {
@@ -39,12 +38,12 @@ if($emailCount != 0) {
 	   		//destroy variables
 	   		unset($data);
 	   }
-	   imap_delete($imap, $i);
+       if(!_DEBUG_) imap_delete($imap, $i);
 	}
 	imap_expunge($imap);
 	imap_close($imap);
 }
 
 print "<div>".rand()."</div>";
-print "</body></html>";
+print "</body>\n</html>";
 ?>
