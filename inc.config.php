@@ -35,8 +35,10 @@
 $conn = mysql_connect($mysql_config['host'], $mysql_config['username'], $mysql_config['password']);
 
 $sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('musicTbl','music')";
+print "<div>$sql</div>";
 mysql_query($sql,$conn);
 print mysql_error();
+/*
 $sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('movieTbl','movies')";
 mysql_query($sql,$conn);
 print mysql_error();
@@ -58,8 +60,9 @@ print mysql_error();
 $sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('userTbl','users')";
 mysql_query($sql,$conn);
 print mysql_error();
+*/
 
-$sql = "SELECT * FROM $configTbl";
+$sql = "SELECT * FROM $configTbl WHERE 1";
 print "<div>$sql</div>";
 $query = mysql_query($sql,$conn);
 $result = mysql_fetch_assoc($result);
