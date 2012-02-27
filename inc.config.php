@@ -76,7 +76,7 @@ mysql_query($sql,$conn);
 print mysql_error();
 */
 
-$sql = "SELECT * FROM $configTbl WHERE 1";
+$sql = "SELECT * FROM $configTbl";
 print "<div>$sql</div>";
 $query = mysql_query($sql);
 $result = mysql_fetch_assoc($result);
