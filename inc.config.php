@@ -44,8 +44,9 @@ print mysql_error();
 
 $sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('musicTbl','music')";
 print "<div>$sql</div>";
-mysql_query($sql);
-print mysql_error();
+$query = mysql_query($sql,$conn);
+$result = mysql_fetch_assoc($query);
+var_dump($result);
 /*
 $sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('movieTbl','movies')";
 mysql_query($sql,$conn);
