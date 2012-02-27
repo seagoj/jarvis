@@ -7,7 +7,7 @@
         $mysql_config = $services_json["mysql-5.1"][0]["credentials"];
     }
     
-    //dbg::vardump($mysql_config);
+    dbg::vardump($mysql_config);
     $db = $mysql_config['name'];
     $musicTbl = '`'.$db.'`.`music`';
     $configTbl = '`'.$db.'`.`config`';
