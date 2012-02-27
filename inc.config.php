@@ -33,6 +33,7 @@
     */
 
 $conn = mysql_connect($mysql_config['host'], $mysql_config['username'], $mysql_config['password']);
+print mysql_error();
 
 $sql = "SHOW TABLES FROM $db";
 print "<div>$sql</div>";
