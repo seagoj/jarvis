@@ -7,7 +7,7 @@
         $mysql_config = $services_json["mysql-5.1"][0]["credentials"];
     }
     
-    dbg::vardump($mysql_config);
+//    dbg::vardump($mysql_config);
     $db = $mysql_config['name'];
     $musicTbl = '`'.$db.'`.`music`';
     $configTbl = '`'.$db.'`.`config`';
@@ -33,18 +33,20 @@
     */
 
 $server = $mysql_config['host'].':'.$mysql_port['port'];
-
+print $server;
 $conn = mysql_connect($server, $mysql_config['username'], $mysql_config['password']);
 if(!$conn) print "Connection failed";
 else print "Successful connection";
 print mysql_error();
 
+/*
 $sql = "SHOW TABLES FROM $db";
 print "<div>$sql</div>";
 $query = mysql_query($sql,$conn);
 print mysql_error();
 $result = mysql_fetch_assoc($query);
 var_dump($result);
+*/
 
 $sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('test','test')";
 print "<div>$sql</div>";
@@ -52,6 +54,7 @@ $query = mysql_query($sql,$conn);
 print mysql_error();
 $result = mysql_fetch_assoc($query);
 var_dump($result);
+
 /*
 $sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('movieTbl','movies')";
 mysql_query($sql,$conn);
