@@ -35,7 +35,7 @@
 $server = $mysql_config['host'].':'.$mysql_port['port'];
 
 $conn = mysql_connect($server, $mysql_config['username'], $mysql_config['password']);
-if(!conn) print "Connection failed";
+if(!$conn) print "Connection failed";
 else print "Successful connection";
 print mysql_error();
 
