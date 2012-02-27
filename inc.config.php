@@ -32,7 +32,9 @@
     ) ENGINE = INNODB";  
     */
 
-$conn = mysql_connect($mysql_config['host'], $mysql_config['username'], $mysql_config['password']);
+$server = $mysql_config['host'].':'.$mysql_port['port'];
+
+$conn = mysql_connect($server, $mysql_config['username'], $mysql_config['password']);
 print mysql_error();
 
 $sql = "SHOW TABLES FROM $db";
