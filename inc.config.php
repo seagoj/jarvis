@@ -33,7 +33,7 @@
     */
 
 $server = $mysql_config['host'].':'.$mysql_config['port'];
-print $server;
+print "<div>Server: $server</div><div>User: $mysql_config['username']</div><div>Pass: $mysql_config['password']</div>";
 $conn = mysql_connect($server, $mysql_config['username'], $mysql_config['password']);
 if(!$conn) print "Connection failed";
 else print "Successful connection";
