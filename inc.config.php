@@ -33,7 +33,7 @@
     */
 
 $server = $mysql_config['host'].':'.$mysql_config['port'];
-print "<div>Server: $server</div>";
+print "<div>Server: ".$server."</div>";
 print "<div>User: ".$mysql_config['username']."</div>";
 print "<div>Pass: "."$mysql_config['password']."</div>";
 $conn = mysql_connect($server, $mysql_config['username'], $mysql_config['password']);
@@ -90,14 +90,6 @@ $result = mysql_fetch_assoc($result);
 var_dump($result);
 print mysql_error();
 
-
-    //$conn = new model('jarvis');
-    //$conn->from('config');
-    //$conn->columns('*');
-    //$conn->where(1);
-    //print $conn->assemble();
-    
-    
     /*
 	define(DBHOST,"localhost");
 	define(DBUSER,"icfjstor_library");
