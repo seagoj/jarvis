@@ -17,7 +17,14 @@
         $query = mysql_query($sql,$conn);
         print mysql_error();
         $result = mysql_fetch_assoc($query);
-        var_dump($result);
+        if(mysql_num_rows($result)>0)
+        {    
+            print mysql_num_rows($result)." rows returned.";
+            var_dump($result);
+        } else
+        {
+            print "No rows returned.";
+        }
     }
 
     $server = $mysql_config['host'].':'.$mysql_config['port'];
