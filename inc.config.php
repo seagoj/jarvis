@@ -20,7 +20,7 @@
     else print "Successful connection";
     print mysql_error();
 
-    $sql = "INSERT INTO $configTbl VALUES ('musicTbl', 'music')";
+    $sql = "INSERT INTO $configTbl (name, value) VALUES ('musicTbl', 'music')";
     print "<div>$sql</div>";
     $query = mysql_query($sql,$conn);
     print mysql_error();
