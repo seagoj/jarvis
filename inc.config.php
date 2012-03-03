@@ -10,6 +10,15 @@
     $db = $mysql_config['name'];
     $musicTbl = '`'.$db.'`.`music`';
     $configTbl = '`'.$db.'`.`config`';
+    
+    function runQuery($sql)
+    {
+        print "<div>$sql</div>";
+        $query = mysql_query($sql,$conn);
+        print mysql_error();
+        $result = mysql_fetch_assoc($query);
+        var_dump($result);
+    }
 
     $server = $mysql_config['host'].':'.$mysql_config['port'];
     print "<div>Server: ".$server."</div>";
@@ -21,18 +30,12 @@
     print mysql_error();
 
     $sql = "INSERT INTO $configTbl (name, value) VALUES ('musicTbl', 'music')";
-    print "<div>$sql</div>";
-    $query = mysql_query($sql,$conn);
-    print mysql_error();
-    $result = mysql_fetch_assoc($query);
-    var_dump($result);
+    runQuery($sql);
 
     $sql = "SHOW TABLES FROM $db";
-    print "<div>$sql</div>";
-    $query = mysql_query($sql,$conn);
-    print mysql_error();
-    $result = mysql_fetch_assoc($query);
-    var_dump($result);
+    runQuery($sql);
+    
+    runQuery("SELECT * FROM $configTbl WHERE 1");
 
 /*
 	define(DBHOST,"localhost");
