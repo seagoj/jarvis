@@ -42,7 +42,7 @@
     $sql = "SHOW TABLES FROM $db";
     runQuery($sql);
     
-    runQuery("SELECT * FROM $configTbl WHERE 1");
+    runQuery("SELECT `value` FROM $configTbl WHERE `name`='musicTbl'");
 
 /*
 	define(DBHOST,"localhost");
