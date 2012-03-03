@@ -32,7 +32,7 @@
     ) ENGINE = INNODB";  
     */
 
-$server = $mysql_config['host'].':'.$mysql_port['port'];
+$server = $mysql_config['host'].':'.$mysql_config['port'];
 print $server;
 $conn = mysql_connect($server, $mysql_config['username'], $mysql_config['password']);
 if(!$conn) print "Connection failed";
