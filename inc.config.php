@@ -55,7 +55,7 @@ print mysql_error();
 $result = mysql_fetch_assoc($query);
 var_dump($result);
 
-/*
+
 $sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('movieTbl','movies')";
 mysql_query($sql,$conn);
 print mysql_error();
@@ -77,7 +77,6 @@ print mysql_error();
 $sql = "INSERT INTO $configTbl (`name`,`value`) VALUES ('userTbl','users')";
 mysql_query($sql,$conn);
 print mysql_error();
-*/
 
 $sql = "SELECT * FROM $configTbl";
 print "<div>$sql</div>";
