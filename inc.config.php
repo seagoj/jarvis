@@ -8,8 +8,10 @@
     }
     
     $db = $mysql_config['name'];
-    $musicTbl = '`'.$db.'`.`music`';
-    $configTbl = '`'.$db.'`.`config`';
+    //$musicTbl = '`'.$db.'`.`music`';
+    //$configTbl = '`'.$db.'`.`config`';
+    $configTbl = `config`;
+    $musicTbl = `music`;
     
     function runQuery($sql) {
         $query = mysql_query($sql,$conn) or die('Query failed:'.mysql_error());
@@ -24,6 +26,7 @@
 
     $server = $mysql_config['host'].':'.$mysql_config['port'];
     $conn = mysql_connect($server, $mysql_config['username'], $mysql_config['password']) or die('Connection failed:'.mysql_error());
+    mysql_select_db($db,$conn)
     runQuery("fghjkl");
     runQuery("INSERT INTO $configTbl (name, value) VALUES ('musicTbl', 'music')");
     runQuery("SHOW TABLES FROM $db");
@@ -48,4 +51,6 @@
 	define(TESTEMAIL, "kat.dankel@gmail.com");
 	
 	mysql_connect(DBHOST,DBUSER,DBPASS) or die("connection");
-	mysql_select_db(
+	mysql_select_db(DBNAME) or die("selection");
+    */
+?>
