@@ -26,7 +26,7 @@
     $conn = mysql_connect($server, $mysql_config['username'], $mysql_config['password']) or die('Connection failed:'.mysql_error());
     mysql_select_db($db,$conn) or die('Database not selected:'.mysql_error());
     print "<div>$db selected</div>";
-    runQuery("fghjkl");
+    print "Start Queries";
     runQuery("INSERT INTO $configTbl (name, value) VALUES ('musicTbl', 'music')");
     runQuery("SHOW TABLES FROM $db");
     runQuery("SELECT `value` FROM $configTbl WHERE name='musicTbl'");
