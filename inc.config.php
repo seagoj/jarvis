@@ -16,12 +16,10 @@
         $query = mysql_query($sql,$conn);
         print mysql_error();
         $result = mysql_fetch_assoc($query);
-        if(mysql_num_rows($result)>0)
-        {    
+        if(mysql_num_rows($result)>0) {    
             print mysql_num_rows($result)." rows returned.";
             var_dump($result);
-        } else
-        {
+        } else {
             print "No rows returned.";
         }
     }
@@ -32,10 +30,11 @@
     if(!$conn) print "Connection failed";
     else print "Successful connection";
 
+    runQuery("fghjkl");
     runQuery("INSERT INTO $configTbl (name, value) VALUES ('musicTbl', 'music')");
     runQuery("SHOW TABLES FROM $db");
     runQuery("SELECT `value` FROM $configTbl WHERE name='musicTbl'");
-    
+
     /*
 	define(DBHOST,"localhost");
 	define(DBUSER,"icfjstor_library");
