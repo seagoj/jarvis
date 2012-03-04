@@ -12,24 +12,18 @@
     $configTbl = '`'.$db.'`.`config`';
     
     function runQuery($sql) {
-        print "<div>$sql</div>";
-        $query = mysql_query($sql,$conn);
-        print mysql_error($conn);
-        $result = mysql_fetch_assoc($query);
+        $query = mysql_query($sql,$conn) or die('Query failed:'.mysql_error());
+        //print "<div class='err'>".mysql_error($conn)."</div>";
+        $result = mysql_fetch_assoc($query) or die('Fetch failed:'.mysql_error());
         if(mysql_num_rows($result)>0) {    
             print mysql_num_rows($result)." rows returned.";
             var_dump($result);
-        } else {
+        } else
             print "No rows returned.";
-        }
     }
 
     $server = $mysql_config['host'].':'.$mysql_config['port'];
-    $conn = mysql_connect($server, $mysql_config['username'], $mysql_config['password']);
-    print mysql_error();
-    if(!$conn) print "Connection failed";
-    else print "Successful connection";
-
+    $conn = mysql_connect($server, $mysql_config['username'], $mysql_config['password']) or die('Connection failed:'.mysql_error());
     runQuery("fghjkl");
     runQuery("INSERT INTO $configTbl (name, value) VALUES ('musicTbl', 'music')");
     runQuery("SHOW TABLES FROM $db");
@@ -54,6 +48,4 @@
 	define(TESTEMAIL, "kat.dankel@gmail.com");
 	
 	mysql_connect(DBHOST,DBUSER,DBPASS) or die("connection");
-	mysql_select_db(DBNAME) or die("selection");
-    */
-?>
+	mysql_select_db(
