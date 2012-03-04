@@ -8,15 +8,12 @@
     }
     
     $db = $mysql_config['name'];
-    //$musicTbl = '`'.$db.'`.`music`';
-    //$configTbl = '`'.$db.'`.`config`';
     $configTbl = `config`;
     $musicTbl = `music`;
     
     function runQuery($sql) {
         $query = mysql_query($sql,$conn) or die('Query failed:'.mysql_error());
         print "<div>Query ran</div>";
-        //print "<div class='err'>".mysql_error($conn)."</div>";
         $result = mysql_fetch_assoc($query) or die('Fetch failed:'.mysql_error());
         if(mysql_num_rows($result)>0) {    
             print mysql_num_rows($result)." rows returned.";
@@ -29,7 +26,7 @@
     $conn = mysql_connect($server, $mysql_config['username'], $mysql_config['password']) or die('Connection failed:'.mysql_error());
     mysql_select_db($db,$conn) or die('Database not selected:'.mysql_error());
     print "<div>$db selected</div>";
-//    runQuery("fghjkl");
+    runQuery("fghjkl");
 //    runQuery("INSERT INTO $configTbl (name, value) VALUES ('musicTbl', 'music')");
 //    runQuery("SHOW TABLES FROM $db");
 //    runQuery("SELECT `value` FROM $configTbl WHERE name='musicTbl'");
