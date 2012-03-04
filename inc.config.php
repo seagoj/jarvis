@@ -28,17 +28,15 @@
 
     $server = $mysql_config['host'].':'.$mysql_config['port'];
     $conn = mysql_connect($server, $mysql_config['username'], $mysql_config['password']);
+    print mysql_error();
     if(!$conn) print "Connection failed";
     else print "Successful connection";
-    print mysql_error();
 
-    $sql = "INSERT INTO $configTbl (name, value) VALUES ('musicTbl', 'music')";
-    runQuery($sql);
-
-    $sql = "SHOW TABLES FROM $db";
-    runQuery($sql);
+    runQuery("INSERT INTO $configTbl (name, value) VALUES ('musicTbl', 'music')");
+    runQuery("SHOW TABLES FROM $db");
     runQuery("SELECT `value` FROM $configTbl WHERE name='musicTbl'");
-/*
+    
+    /*
 	define(DBHOST,"localhost");
 	define(DBUSER,"icfjstor_library");
 	define(DBPASS,"NUEoilfsamdmaie23814");
