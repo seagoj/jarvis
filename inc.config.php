@@ -12,6 +12,10 @@
     $musicTbl = `music`;
     
     function runQuery($sql) {
+        $server = $mysql_config['host'].':'.$mysql_config['port'];
+        $conn = mysql_connect($server, $mysql_config['username'], $mysql_config['password']) or die('Connection failed:'.mysql_error());
+        mysql_select_db($db,$conn) or die('Database not selected:'.mysql_error());
+        print "<div>$db selected</div>";
         $query = mysql_query($sql,$conn) or die('Query failed:'.mysql_error());
         print "<div>Query ran</div>";
         $result = mysql_fetch_assoc($query) or die('Fetch failed:'.mysql_error());
@@ -20,14 +24,11 @@
             var_dump($result);
         } else
             print "No rows returned.";
+        mysql_close($conn);
     }
 
-    $server = $mysql_config['host'].':'.$mysql_config['port'];
-    $conn = mysql_connect($server, $mysql_config['username'], $mysql_config['password']) or die('Connection failed:'.mysql_error());
-    mysql_select_db($db,$conn) or die('Database not selected:'.mysql_error());
-    print "<div>$db selected</div>";
     print "Start Queries";
-    runQuery("INSERT INTO $configTbl (name, value) VALUES ('musicTbl', 'music')");
+    //runQuery("INSERT INTO $configTbl (name, value) VALUES ('musicTbl', 'music')");
     runQuery("SHOW TABLES FROM $db");
     runQuery("SELECT `value` FROM $configTbl WHERE name='musicTbl'");
 
