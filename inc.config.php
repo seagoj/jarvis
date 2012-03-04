@@ -11,8 +11,7 @@
     $musicTbl = '`'.$db.'`.`music`';
     $configTbl = '`'.$db.'`.`config`';
     
-    function runQuery($sql)
-    {
+    function runQuery($sql) {
         print "<div>$sql</div>";
         $query = mysql_query($sql,$conn);
         print mysql_error();
@@ -28,9 +27,6 @@
     }
 
     $server = $mysql_config['host'].':'.$mysql_config['port'];
-    print "<div>Server: ".$server."</div>";
-    print "<div>User: ".$mysql_config['username']."</div>";
-    print "<div>Pass: ".$mysql_config['password']."</div>";
     $conn = mysql_connect($server, $mysql_config['username'], $mysql_config['password']);
     if(!$conn) print "Connection failed";
     else print "Successful connection";
@@ -41,9 +37,7 @@
 
     $sql = "SHOW TABLES FROM $db";
     runQuery($sql);
-    
-    runQuery("SELECT `value` FROM $configTbl WHERE `name`='musicTbl'");
-
+    runQuery("SELECT `value` FROM $configTbl WHERE name='musicTbl'");
 /*
 	define(DBHOST,"localhost");
 	define(DBUSER,"icfjstor_library");
