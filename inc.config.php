@@ -28,7 +28,7 @@
     print "<div>$db selected</div>";
     print "Start Queries";
     //runQuery("INSERT INTO $configTbl (name, value) VALUES ('musicTbl', 'music')");
-    runQuery("SHOW TABLES FROM $db");
+    runQuery("SHOW TABLES");
     runQuery("SELECT `value` FROM $configTbl WHERE name='musicTbl'");
 
     /*
