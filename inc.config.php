@@ -14,7 +14,7 @@
     function runQuery($sql) {
         print "<div>$sql</div>";
         $query = mysql_query($sql,$conn);
-        print mysql_error();
+        print mysql_error($conn);
         $result = mysql_fetch_assoc($query);
         if(mysql_num_rows($result)>0) {    
             print mysql_num_rows($result)." rows returned.";
