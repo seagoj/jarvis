@@ -15,6 +15,7 @@
     
     function runQuery($sql) {
         $query = mysql_query($sql,$conn) or die('Query failed:'.mysql_error());
+        print "<div>Query ran</div>";
         //print "<div class='err'>".mysql_error($conn)."</div>";
         $result = mysql_fetch_assoc($query) or die('Fetch failed:'.mysql_error());
         if(mysql_num_rows($result)>0) {    
