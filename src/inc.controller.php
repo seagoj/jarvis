@@ -1,40 +1,36 @@
 <?php
-    include_once('inc.config.php');
+	include_once('inc.config.php');
 	include_once('class.query.php');
 	
 	function remSignature($email) {
 		return substr($email, 0, strpos($email, "<br clear=\"all\">"));
 	}
 	
-	function parse_v1($body)
-    {
-		$data = array();
-        dbg::vardump($body);
-		while (strlen($body)!= 0) {
-		    $var = substr($body, strpos($body, "@")+1, strpos($body, " ")-1);
-			$token = "@".$var." ";
+	function parse($body) {
+			$data = array();
+			while (strlen($body)!= 0) {
 				
-        	if(!(strpos($body, "<br>")===false)) {
-        		$nextRet = strpos($body, "<br>");
-        		$error .= "End Line Found at $nextRet<br>";
-        	}
-        	else if(!strpos($body, "<div>")===false){
-                print '';
-        	} else {
-        		$nextRet = strlen($body);
-        		$error .= "No End Line<br>$nextRet<br>$body<br>";
-        	}
-        	$$var = ucwords(substr($body, strpos($body, $token)+strlen($token), $nextRet-strpos($body, $token)-strlen($token)));
-        	if(substr($$var, 0, 3)=="The") {
-        		$$var = substr($$var, 4).", The";
-                //dbg::vardump($$var);
-        	}
-        	$data = array_merge($data, array($var=>$$var));
-        	if(!(strpos($body, "<br>")===false)) {
-        		$body = substr($body, strpos($body, "<br>")+4);
-        	} else { 
-        		$body = '';
-        	}
+				$var = substr($body, strpos($body, "@")+1, strpos($body, " ")-1);
+				$token = "@".$var." ";
+				
+        		if(!(strpos($body, "<br>")===false)) {
+        			$nextRet = strpos($body, "<br>");
+        			$error .= "End Line Found at $nextRet<br>";
+        		}
+        		else {
+        			$nextRet = strlen($body);
+        			$error .= "No End Line<br>$nextRet<br>$body<br>";
+        		}
+        		$$var = ucwords(substr($body, strpos($body, $token)+strlen($token), $nextRet-strpos($body, $token)-strlen($token)));
+        		if(substr($$var, 0, 3)=="The") {	
+        			$$var = substr($$var, 4).", The";
+        		}
+        		$data = array_merge($data, array($var=>$$var));
+        		if(!(strpos($body, "<br>")===false)) {
+        			$body = substr($body, strpos($body, "<br>")+4);
+        		} else { 
+        			$body = '';
+        		}
 				
 				
 				/* DEVELOPMENT
@@ -50,35 +46,12 @@
 				
 				$data = array_merge($data, array($var=>$$var));
 				*/
-		}
-		//print_r($data);
-		//mail("seagoj@gmail.com", "debug", $data['upc'], "from:<jarvis@seagoj.com>\nContent-Type: text/html; charset=iso-8859-1");
+			}
+			//print_r($data);
+			//mail("seagoj@gmail.com", "debug", $data['upc'], "from:<jarvis@seagoj.com>\nContent-Type: text/html; charset=iso-8859-1");
 		return $data;
 	}
 	
-    function parse($body) {
-        $lines = explode('@', strip_tags($body));
-        $data = array();
-        foreach($lines AS $line) {
-            if(strlen($line)>0) {
-                $field = substr($line,0,strpos($line,' '));
-                $value = substr($line,1+strpos($line,' '));
-                $value = moveArticles($value);
-                $data = array_merge($data, array($field=>$value));
-            }
-        }
-        
-        return $data;
-    }
-    
-    function moveArticles($line) {
-        $first = substr($line,0,strpos($line,' '));
-        if(strtolower($first)=='a' || strtolower($first)=='an' || strtolower($first)=='the') {
-            $line = substr($line,strlen($first)+1+strpos($line, '')).", $first";
-        }
-        return $line;
-    }
-    
 	function getTable($command) {
 		if(!(strpos($command, "music")===false))
 			$table = MUSICTBL;
@@ -182,7 +155,7 @@
    					foreach ($data as $key=>$value){
 						$srchQry.=" AND `".$key."`='".$value."'";
    					}
-   				print $srchQry;
+   				//print $srchQry;
    				$srchRes = mysql_query($srchQry);
    				$cols = mysql_query("select column_name from information_schema.columns where table_name='".$table."'; ");
 
