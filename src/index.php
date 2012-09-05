@@ -1,3 +1,3 @@
 <?php
- header('Location: http://jarvis-1698c.aws.af.cm/inc.mailcollect.php');
+ header('Location: http://forge/jarvis/inc.mailcollect.php');
 ?>

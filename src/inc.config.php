@@ -1,11 +1,20 @@
 <?php
     require_once('lib.model/class.model.php');
-    
+
+    /*
     $services = getenv("VCAP_SERVICES");
     if($services) {
         $services_json = json_decode($services,true);
         $mysql_config = $services_json["mysql-5.1"][0]["credentials"];
     }
+    */
+
+    $mysql_config = array(
+        'name'=>'jarvis',
+        'host'=>'localhost',
+        'username'=>'jarvis',
+        'password'=>'rwpGtJW5YFX6y9rv'
+    );
     
     $db = $mysql_config['name'];
     $configTbl = `config`;
@@ -21,14 +30,15 @@
         } else
             print "No rows returned.";
     }
-    
-    $server = $mysql_config['host'].':'.$mysql_config['port'];
+
+    $server = $mysql_config['host'];
+    isset($mysql_config['port']) ? $server.=':'.$mysql_config['port'] : '' ;
     $conn = mysql_connect($server, $mysql_config['username'], $mysql_config['password']) or die('Connection failed:'.mysql_error());
     mysql_select_db($db,$conn) or die('Database not selected:'.mysql_error());
     print "<div>$db selected</div>";
-    print "Start Queries";
+    print "<div>Start Queries</div>";
     //runQuery("INSERT INTO $configTbl (name, value) VALUES ('musicTbl', 'music')");
-    runQuery("SHOW TABLES");
+    runQuery("SHOW TABLES", $conn);
     runQuery("SELECT `value` FROM $configTbl WHERE name='musicTbl'");
 
     /*
