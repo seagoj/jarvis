@@ -1,5 +1,4 @@
 <?php
-print "TEST";
 print "<html>\n<head>\n";
 if(_DEBUG_) {
     require_once('lib.dbg/class.dbg.php');

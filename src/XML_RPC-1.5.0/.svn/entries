@@ -2,14 +2,14 @@
 
 dir
 3
-https://seagoj.svn.beanstalkapp.com/jarvis/XML_RPC-1.5.0
-https://seagoj.svn.beanstalkapp.com/jarvis
+https://seagoj.svn.beanstalkapp.com/workspace/jarvis/XML_RPC-1.5.0
+https://seagoj.svn.beanstalkapp.com/workspace
 
 
 
-2009-02-18T21:35:29.420753Z
+2011-02-16T20:15:15.198667Z
 1
-root
+Beanstalk
 
 
 
@@ -24,7 +24,7 @@ root
 
 
 
-4b98bf0e-13da-401d-8617-0a284fa25100
+4e56f2ee-467b-4cc7-bedc-e313576bc271
 
 tests
 dir
@@ -35,11 +35,11 @@ file
 
 
 
-2011-02-16T20:06:22.980161Z
+2011-03-09T18:40:06.909459Z
 061fff73145caf71347c6c449ee0b1b5
-2009-02-18T21:35:29.420753Z
+2011-02-16T20:15:15.198667Z
 1
-root
+Beanstalk
 
 
 
@@ -69,11 +69,11 @@ file
 
 
 
-2011-02-16T20:06:22.983162Z
+2011-03-09T18:40:06.912459Z
 838b291fb048dde940ba1b4ccd48bda6
-2009-02-18T21:35:29.420753Z
+2011-02-16T20:15:15.198667Z
 1
-root
+Beanstalk
 
 
 
@@ -103,11 +103,11 @@ file
 
 
 
-2011-02-16T20:06:23.004164Z
+2011-03-09T18:40:06.940462Z
 439d341bdbfda323a41079696ad62843
-2009-02-18T21:35:29.420753Z
+2011-02-16T20:15:15.198667Z
 1
-root
+Beanstalk
 
 
 
