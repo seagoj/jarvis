@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/jarvis/!svn/ver/1/XML_RPC-1.5.0/tests
+END
+empty-value-struct.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/jarvis/!svn/ver/1/XML_RPC-1.5.0/tests/empty-value-struct.php
+END
+extra-lines.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/jarvis/!svn/ver/1/XML_RPC-1.5.0/tests/extra-lines.php
+END
+allgot.inc
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/jarvis/!svn/ver/1/XML_RPC-1.5.0/tests/allgot.inc
+END
+test_Dump.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/jarvis/!svn/ver/1/XML_RPC-1.5.0/tests/test_Dump.php
+END
+types.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/jarvis/!svn/ver/1/XML_RPC-1.5.0/tests/types.php
+END
+empty-value.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/jarvis/!svn/ver/1/XML_RPC-1.5.0/tests/empty-value.php
+END
+protoport.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/jarvis/!svn/ver/1/XML_RPC-1.5.0/tests/protoport.php
+END
