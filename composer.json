@@ -1,0 +1,35 @@
+{
+    "name": "Jarvis",
+    "description": "Helper Bot",
+    "license": "MIT",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/lsmonki/php-ixr"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/lstrojny/fxmlrpc"
+        }
+    ],
+    "require": {
+        "lstrojny/fxmlrpc": "dev-master",
+        "lsmonki/php-ixr": "1.7.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*",
+        "phpunit/php-invoker": "1.1.*",
+        "phpunit/dbunit": "1.2.*",
+        "phpunit/phpunit-selenium": "1.3.*",
+        "phpunit/phpunit-story": "1.0.*"
+    },
+    "scripts": {
+        "pre-install-cmd": [
+        ],
+        "post-install-cmd": [
+        ]
+    },
+    "config": {},
+    "autoload": {
+    }
+}
