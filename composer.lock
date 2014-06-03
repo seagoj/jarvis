@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/seagoj/Devtools.git",
-                "reference": "d0ff168129ad7026ac971aaaf7425a3b85867e5d"
+                "reference": "525923ba665c7cf69da6dce883f17f3fe7c5362e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/seagoj/Devtools/zipball/d0ff168129ad7026ac971aaaf7425a3b85867e5d",
-                "reference": "d0ff168129ad7026ac971aaaf7425a3b85867e5d",
+                "url": "https://api.github.com/repos/seagoj/Devtools/zipball/525923ba665c7cf69da6dce883f17f3fe7c5362e",
+                "reference": "525923ba665c7cf69da6dce883f17f3fe7c5362e",
                 "shasum": ""
             },
             "require": {
@@ -53,7 +53,7 @@
                 "source": "https://github.com/seagoj/Devtools/tree/master",
                 "issues": "https://github.com/seagoj/Devtools/issues"
             },
-            "time": "2014-05-27 21:20:48"
+            "time": "2014-06-03 18:54:19"
         },
         {
             "name": "lsmonki/php-ixr",
