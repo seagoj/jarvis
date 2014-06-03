@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
     require_once('lib.model/class.model.php');
 

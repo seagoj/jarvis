@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 include_once('inc.controller.php');
 
@@ -9,7 +8,7 @@ $emailCount = imap_num_msg($imap);
 dbg::test(imap_errors()==NULL, __METHOD__);
 if($emailCount != 0) {
 	for($i=1;$i<=$emailCount;$i++) {
-		
+
 		$headers = imap_header($imap,$i);
         dbg::test(isset($headers),__METHOD__);
 		$emailFrom = $headers->sender[0]->mailbox.'@'.$headers->sender[0]->host;
