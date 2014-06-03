@@ -7,3 +7,4 @@ cookbooks
 *.sublime-workspace
 Thumbs.db
 Desktop.ini
+vendor
