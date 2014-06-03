@@ -3,8 +3,58 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "8739e2d9aa9f0455628f2ff00ec42d13",
+    "hash": "9c6d7c399a5667be66bf09c20e92e619",
     "packages": [
+        {
+            "name": "Devtools",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/seagoj/Devtools.git",
+                "reference": "d0ff168129ad7026ac971aaaf7425a3b85867e5d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/seagoj/Devtools/zipball/d0ff168129ad7026ac971aaaf7425a3b85867e5d",
+                "reference": "d0ff168129ad7026ac971aaaf7425a3b85867e5d",
+                "shasum": ""
+            },
+            "require": {
+                "predis/predis": ">=0.8"
+            },
+            "require-dev": {
+                "phpunit/dbunit": "1.2.*",
+                "phpunit/php-invoker": "1.1.*",
+                "phpunit/phpunit": "3.7.*",
+                "phpunit/phpunit-selenium": "1.3.*",
+                "phpunit/phpunit-story": "1.0.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Devtools\\": "vendor/Devtools"
+                }
+            },
+            "scripts": {
+                "pre-install-cmd": [
+
+                ],
+                "post-install-cmd": [
+                    "mv vendor/predis vendor/predis-lib",
+                    "ln -s predis-lib/predis/lib/Predis vendor/Predis",
+                    "ln -s .. vendor/Devtools"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Tools for PHP development",
+            "support": {
+                "source": "https://github.com/seagoj/Devtools/tree/master",
+                "issues": "https://github.com/seagoj/Devtools/issues"
+            },
+            "time": "2014-05-27 21:20:48"
+        },
         {
             "name": "lsmonki/php-ixr",
             "version": "1.7.4",
@@ -118,6 +168,53 @@
                 "issues": "https://github.com/lstrojny/fxmlrpc/issues"
             },
             "time": "2014-05-12 20:42:14"
+        },
+        {
+            "name": "predis/predis",
+            "version": "v0.8.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nrk/predis.git",
+                "reference": "5f2eea628eb465d866ad2771927d83769c8f956c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/5f2eea628eb465d866ad2771927d83769c8f956c",
+                "reference": "5f2eea628eb465d866ad2771927d83769c8f956c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "suggest": {
+                "ext-curl": "Allows access to Webdis when paired with phpiredis",
+                "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Predis": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniele Alessandri",
+                    "email": "suppakilla@gmail.com",
+                    "homepage": "http://clorophilla.net"
+                }
+            ],
+            "description": "Flexible and feature-complete PHP client library for Redis",
+            "homepage": "http://github.com/nrk/predis",
+            "keywords": [
+                "nosql",
+                "predis",
+                "redis"
+            ],
+            "time": "2014-01-16 14:10:29"
         }
     ],
     "packages-dev": [
@@ -748,6 +845,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "devtools": 20,
         "lstrojny/fxmlrpc": 20
     },
     "platform": [
